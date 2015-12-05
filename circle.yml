@@ -1,6 +1,6 @@
 general:
     artifacts:
-        - /home/ubuntu/your-app-name/app/build/outputs/apk/
+        - app/build/outputs/apk/app-release-unsigned.apk
 
 machine:
     environment:
@@ -13,5 +13,5 @@ dependencies:
 
 test:
     override:
-        - (./gradlew assemble):
+        - (./gradlew assembleRelease):
             timeout: 360 
