@@ -1,9 +1,8 @@
 machine:
-  java:
+  java:
     version: openjdk7
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
-    JAVA_OPTS: "-Xmx2048m -XX:MaxPermSize=1024m" 
 dependencies:
   pre:
     - echo y | android update sdk --no-ui --filter "android-21,build-tools-22.0.1"
