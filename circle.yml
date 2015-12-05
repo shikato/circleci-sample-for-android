@@ -11,8 +11,8 @@ dependencies:
 test:
   override:
     - ./gradlew assembleDebug
-deployment:
+deployment: 
   master:
-    branch: master
+    branch: master
     commands:
       - ./gradlew assembleRelease
