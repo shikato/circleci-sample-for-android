@@ -9,8 +9,8 @@ dependencies:
   override:
     - ./gradlew dependencies
 test:
-  override:
-    - echo "Nothing to do here"
+  override:
+    - ./gradlew assembleDebug
 deployment:
   master:
     branch: master
