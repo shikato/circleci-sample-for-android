@@ -1,18 +1,17 @@
+general:
+    artifacts:
+        - /home/ubuntu/your-app-name/app/build/outputs/apk/
+
 machine:
-  java:
-    version: openjdk7
-  environment:
-    ANDROID_HOME: /usr/local/android-sdk-linux
+    environment:
+        ANDROID_HOME: /usr/local/android-sdk-linux
+
 dependencies:
-  pre:
-    - echo y | android update sdk --no-ui --filter "android-21,build-tools-22.0.1"
-  override:
-    - ./gradlew dependencies
+    override:
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-21.1.2,android-21,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+
 test:
-  override:
-    - ./gradlew assembleDebug
-deployment: 
-  master:
-    branch: master
-    commands:
-      - ./gradlew assembleRelease
+    override:
+        - (./gradlew assemble):
+            timeout: 360 
