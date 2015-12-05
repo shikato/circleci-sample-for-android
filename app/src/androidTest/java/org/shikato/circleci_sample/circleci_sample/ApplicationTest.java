@@ -1,13 +1,29 @@
 package org.shikato.circleci_sample.circleci_sample;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.runner.AndroidJUnit4;
 
-/**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
- */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
-        super(Application.class);
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+@RunWith(AndroidJUnit4.class)
+public class ApplicationTest {
+
+    private Context mContext;
+
+    @Before
+    public void setUp() throws Exception {
+        // Contextを取得
+        mContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+    }
+
+    @Test
+    public void test1() {
+        assertThat(true, is(true));
     }
 }
