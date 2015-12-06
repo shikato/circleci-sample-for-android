@@ -20,7 +20,7 @@ test:
             parallel: true
         - circle-android wait-for-boot
     override:
-        - (ADB_INSTALL_TIMEOUT=20 ./gradlew connectedAndroidTest -PdisablePreDex):
+        - (ADB_INSTALL_TIMEOUT=20 ./gradlew createDebugCoverageReport -PdisablePreDex):
             timeout: 360 
         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
         - find . -type f -regex ".*/androidTest-results/*/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;

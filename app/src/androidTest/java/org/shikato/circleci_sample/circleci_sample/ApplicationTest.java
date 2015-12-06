@@ -33,7 +33,7 @@ public class ApplicationTest {
     }
 
     @Test
-    public void testGetTrue() {
-        assertThat(false, is(Sample.getTrue()));
+    public void testGetBoolean() {
+        assertThat(true, is(Sample.getBoolean(true)));
     }
 }
