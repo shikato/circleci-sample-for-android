@@ -14,9 +14,10 @@ dependencies:
 
 test: 
     pre:
-        - $ANDROID_HOME/tools/emulator -avd test-target -no-skin -no-audio -no-window -no-boot-anim:
+        - emulator -avd circleci-android22 -no-audio -no-window:
             background: true
             parallel: true
+        - circle-android wait-for-boot
     override:
-        - (./gradlew connectedAndroidTest):
+        - (./gradlew connectedAndroidTest -PdisablePreDex):
             timeout: 360 
