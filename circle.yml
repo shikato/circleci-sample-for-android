@@ -1,6 +1,7 @@
 general:
     artifacts:
         - app/build/outputs/apk/app-release-unsigned.apk
+        - app/build/reports/androidTests/connected
 
 machine:
     environment:
@@ -19,7 +20,7 @@ test:
             parallel: true
         - circle-android wait-for-boot
     override:
-        - (ADB_INSTALL_TIMEOUT=100 ./gradlew connectedAndroidTest -PdisablePreDex):
+        - (ADB_INSTALL_TIMEOUT=20 ./gradlew connectedAndroidTest -PdisablePreDex):
             timeout: 360 
 
 deployment:
