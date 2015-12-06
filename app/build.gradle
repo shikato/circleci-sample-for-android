@@ -25,6 +25,7 @@ android {
         }
     }
     dexOptions {
+        javaMaxHeapSize "1024M"
         // circleicではインクリメンタルビルドを無効にする
         preDexLibraries !(System.getenv()["CIRCLECI"] as boolean)
     }
