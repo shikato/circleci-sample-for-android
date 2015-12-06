@@ -24,6 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dexOptions {
+        // circleicではインクリメンタルビルドを無効にする
+        preDexLibraries !(System.getenv()["CIRCLECI"] as boolean)
+    }
 }
 
 configurations.all {
