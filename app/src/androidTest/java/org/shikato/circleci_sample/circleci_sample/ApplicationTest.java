@@ -31,4 +31,9 @@ public class ApplicationTest {
     public void test2() {
         assertThat(true, is(true));
     }
+
+    @Test
+    public void testGetTrue() {
+        assertThat(true, is(Sample.getTrue()));
+    }
 }
