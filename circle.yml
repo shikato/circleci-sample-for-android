@@ -19,5 +19,5 @@ test:
             parallel: true
         - circle-android wait-for-boot
     override:
-        - (./gradlew connectedAndroidTest -PdisablePreDex):
+        - (ADB_INSTALL_TIMEOUT=10 ./gradlew connectedAndroidTest -PdisablePreDex):
             timeout: 360 
