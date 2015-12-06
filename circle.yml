@@ -22,6 +22,8 @@ test:
     override:
         - (ADB_INSTALL_TIMEOUT=20 ./gradlew connectedAndroidTest -PdisablePreDex):
             timeout: 360 
+        - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+        - find . -type f -regex ".*/androidTest-results/*/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
 deployment:
     master:
