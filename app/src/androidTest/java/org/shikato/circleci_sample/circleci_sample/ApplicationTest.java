@@ -24,6 +24,6 @@ public class ApplicationTest {
 
     @Test
     public void test1() {
-        assertThat(true, is(true));
+        assertThat(false, is(true));
     }
 }
