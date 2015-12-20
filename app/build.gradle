@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-coverage-check'
+
 
 android {
     compileSdkVersion 22
@@ -20,6 +22,9 @@ android {
         debug {
             testCoverageEnabled true
         }
+    }
+    adbOptions {
+        timeOutInMs 1200000
     }
     dexOptions {
         javaMaxHeapSize "1024M"
@@ -48,5 +53,5 @@ dependencies {
     androidTestCompile 'com.android.support.test:rules:0.4'
     // Set this dependency to build and run Espresso tests
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
-    androidTestCompile 'junit:junit:4.12'
 }
+
