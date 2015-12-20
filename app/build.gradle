@@ -55,3 +55,7 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
 }
 
+androidCoverageCheck {
+    isBuildFailure false
+}
+
